@@ -5,7 +5,7 @@ export default function Checkbox({
 
   const checkedClasses = 'bg-violet-600'
 
-  const disabledClasses = '!scale-100 opacity-60 !cursor-not-allowed'
+  const disabledClasses = 'opacity-60 !cursor-not-allowed'
 
   return (
     <div
@@ -18,7 +18,7 @@ export default function Checkbox({
         checked={checked}
         onChange={onChange}
         disabled={disabled}
-        className={`${baseClasses} ${checked ? checkedClasses : ''} ${disabled ? disabledClasses : ''}`}
+        className={`${baseClasses}${checked ? ` ${checkedClasses}` : ''} ${disabled ? ` ${disabledClasses}` : ''}`}
         />
         {checked && (
           <span className='absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 font-bold text-white pointer-events-none select-none'>
