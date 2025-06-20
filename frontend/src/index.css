@@ -6,7 +6,11 @@
   #root {
     @apply bg-slate-200 h-screen h-dvh font-mono;
   }
-};
+  button {
+    @apply select-none transition-colors;
+  }
+}
+
 @layer utilities {
   .flex-center-all {
     @apply flex items-center justify-center;
