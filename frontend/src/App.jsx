@@ -1,7 +1,9 @@
+import HomePage from './pages/HomePage'
+
 export default function App() {
   return (
-    <>
-      <p className='underline'>Hola mundo</p>
-    </>
+    <main className='border-yellow-900 border-2 max-w-screen-sm mx-auto'>
+      <HomePage />
+    </main>
   )
 }
