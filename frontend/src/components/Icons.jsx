@@ -15,3 +15,12 @@ export function IconSearch({ className }) {
     </svg>
   )
 }
+
+export function IconArrow({ className = '' }) {
+  return (
+    <svg viewBox='64 256 896 512' className={className}>
+      <path d='M903.232 256l56.768 50.432L512 768 64 306.432 120.768 256 512 659.072z' fill='currentColor' stroke='currentColor' strokeWidth='50' strokeLinejoin='round'
+      strokeLinecap='round' />
+    </svg>
+  )
+}
