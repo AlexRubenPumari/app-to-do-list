@@ -1,7 +1,7 @@
 export default function Checkbox({
   id, name, checked, onChange, disabled = false, className = ''
 }) {
-  const baseClasses = 'appearance-none size-7 border-b-2 border-r-2 border-t-[1px] border-l-[1px] rounded-sm cursor-pointer transition-all ease-in-out border-violet-600 hover:scale-105 focus-ring-default'
+  const baseClasses = 'appearance-none size-7 border-b-2 border-r-2 border-t border-l rounded-sm cursor-pointer transition-all ease-in-out border-violet-600 hover:scale-105 focus-ring-default'
 
   const checkedClasses = 'bg-violet-600'
 
