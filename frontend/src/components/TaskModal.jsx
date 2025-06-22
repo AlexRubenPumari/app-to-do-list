@@ -9,7 +9,7 @@ export default function TaskModal ({ Task, onClose }) {
       className='flex-grow flex-center-all flex-col gap-4'
       onClose={onClose}
     >
-      <h2 className='w-full text-center text-xl font-bold uppercase'>{title}</h2>
+      <h2 className='Title'>{title}</h2>
       <table>
         <tbody>
           <tr>

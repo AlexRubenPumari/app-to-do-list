@@ -7,10 +7,19 @@
     @apply bg-slate-200 min-h-screen min-h-dvh font-mono;
   }
   button {
-    @apply select-none transition-colors;
+    @apply select-none transition-colors px-4 py-2 font-bold;
   }
   td, th {
     @apply px-4 py-2;
+  }
+}
+
+@layer components {
+  .Title {
+    @apply w-full text-center text-xl font-bold uppercase;
+  }
+  .Input {
+    @apply w-full px-4 py-2 rounded-md;
   }
 }
 
