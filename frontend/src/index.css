@@ -4,10 +4,13 @@
 
 @layer base {
   #root {
-    @apply bg-slate-200 h-screen h-dvh font-mono;
+    @apply bg-slate-200 min-h-screen min-h-dvh font-mono;
   }
   button {
     @apply select-none transition-colors;
+  }
+  td, th {
+    @apply px-4 py-2;
   }
 }
 
