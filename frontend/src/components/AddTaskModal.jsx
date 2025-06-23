@@ -1,13 +1,13 @@
+import { useContext } from 'react'
+import { TasksContext } from '../contexts/tasks'
 import { useForm } from '../hooks/useForm'
 import { isValidTitle, isValidDesc } from '../logic/validations'
 import { getFormattedDateString } from '../logic/date'
-import { useContext } from 'react'
-import { TasksContext } from '../contexts/tasks'
 import { TASK_KEYS } from '../config/constants'
 import Modal from './Modal'
 import AddTaskForm from './AddTaskForm'
 
-export default function TaskFormModal ({ onClose }) {
+export default function AddTaskModal ({ onClose }) {
   const { addNewTask } = useContext(TasksContext)
   const [TITLE, DESC] = TASK_KEYS
   const { values, errors, handleChange, validateForm } = useForm(

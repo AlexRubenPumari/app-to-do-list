@@ -5,40 +5,19 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-const PORT = 3000
-let tasks = [ //Array in memory
-  {
-    "id": 8,
-    "title": "Plan weekend trip",
-    "description": "Look for accommodation options and activities.",
-    "completed": false,
-    "createAt": "2025-06-19T08:30:00Z"
-  },
-  {
-    "id": 9,
-    "title": "Check email",
-    "description": "Reply to important messages.",
-    "completed": true,
-    "createAt": "2025-06-11T09:00:00Z"
-  },
-  {
-    "id": 10,
-    "title": "Learn new cooking recipe",
-    "description": "Lentil soup.",
-    "completed": false,
-    "createAt": "2025-06-20T10:00:00Z"
-  }
-]
+const PORT = 4000
+let currentId = 1
+let tasks = []
 
 app.get('/api/tasks', (_, res) => {
     res.status(200).json({ data: tasks })
 })
 
 app.post('/api/tasks', (req, res) => {
-    const newTask = req.body
+    const newTask = { id: currentId++, ...req.body }
     tasks.push(newTask)
 
-    res.status(201).json({ status: 201, ok: true, data: newTask })
+    res.status(201).json({ data: newTask })
 })
 
 app.put('/api/tasks/:id', (req, res) => {

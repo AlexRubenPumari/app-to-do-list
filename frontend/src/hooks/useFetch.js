@@ -14,5 +14,5 @@ export function useFetch ({ url, asyncFunction }) {
       .finally(() => setIsLoading(false))
   }, [url])
 
-  return { data, isLoading, error }
+  return { data, isLoading, error, setData }
 }

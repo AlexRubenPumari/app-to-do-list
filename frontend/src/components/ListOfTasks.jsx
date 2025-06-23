@@ -16,12 +16,11 @@ export default function ListOfTasks () {
 function List ({ list }) {
   return (
     <ul>
-        {list?.map(({ id, title, completed }) => (
+        {list?.map(task => (
           <Task
-            key={id}
-            title={title}
+            key={task.id}
+            values={task}
             className='border-b-[1px] last:border-b-0 border-violet-600'
-            checked={completed}
           />
         ))}
     </ul>

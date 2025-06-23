@@ -16,7 +16,7 @@
 
 @layer components {
   .Title {
-    @apply w-full text-center text-xl font-bold uppercase;
+    @apply text-center text-xl font-bold uppercase;
   }
   .Input {
     @apply w-full px-4 py-2 rounded-md;

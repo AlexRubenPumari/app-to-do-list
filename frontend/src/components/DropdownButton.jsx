@@ -18,7 +18,7 @@ export default function DropdownButton ({
       onClick={e => (e.stopPropagation() ,setToggleMenu(!toggleMenu))}
     >
       <span className='w-20 text-left'>{currentValue}</span>
-      <span>|</span>
+      <span className='font-normal'>|</span>
       <IconArrow className='w-4' />
       {toggleMenu && (
         <Menu

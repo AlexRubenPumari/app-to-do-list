@@ -1,5 +1,6 @@
+const LOCAL_HOST_URL = 'http://localhost:4000/api/tasks' 
 export function getAllTasks () {
-  return fetch('http://localhost:3000/api/tasks')
+  return fetch(LOCAL_HOST_URL)
     .then(res => {
       if (!res.ok) throw new Error(res.status)
       
@@ -9,7 +10,7 @@ export function getAllTasks () {
 }
 
 export function addTask (bodyReq) {
-  return fetch('http://localhost:3000/api/tasks', {
+  return fetch(LOCAL_HOST_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(bodyReq)

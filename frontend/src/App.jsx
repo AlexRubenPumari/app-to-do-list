@@ -1,9 +1,15 @@
+import { useContext } from 'react'
+import { ModalContext } from './contexts/modal'
+import TasksProvider from './contexts/tasks'
 import HomePage from './pages/HomePage'
+import ModalController from './components/ModalController'
 
 export default function App() {
+  const { modal } = useContext(ModalContext)
   return (
-    <main className='border-2 max-w-screen-sm mx-auto px-4'>
+    <TasksProvider>
       <HomePage />
-    </main>
+      {modal && <ModalController type={modal.type} value={modal.value} />}
+    </TasksProvider>
   )
 }

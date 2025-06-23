@@ -1,8 +1,8 @@
 import Modal from './Modal'
 
-export default function TaskModal ({ Task, onClose }) {
+export default function TaskModal ({ values, onClose }) {
   const firstColClasses = 'text-gray-700'
-  const { title, completed, description, createdAt } = Task
+  const { title, completed, description, createdAt } = values
   return (
     <Modal
       size='md'

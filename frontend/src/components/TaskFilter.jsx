@@ -13,7 +13,6 @@ export default function TaskFilter () {
   return (
     <DropdownButton
       currentValue={value}
-      className='self-start'
       items={FILTER_ITEMS}
       callbacks={filterCallbacks}
     />
