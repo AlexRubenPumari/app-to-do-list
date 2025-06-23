@@ -3,7 +3,7 @@ import Searchbar from '../components/Searchbar'
 import ListOfTasks from '../components/ListOfTasks'
 import TaskFilter from '../components/TaskFilter'
 import CircleButton from '../components/CircleButton'
-import TaskModal from '../components/TaskModal'
+import TaskFormModal from '../components/TaskFormModal'
 
 export default function HomePage() {
   const [m, setM] = useState(false)
@@ -22,7 +22,7 @@ export default function HomePage() {
           +
         </CircleButton>
       </div>
-      {m && <TaskModal Task={{ title: 'Tarea 1', completed: false, createdAt: '02/03/2025', description: 'No hay desc' }} onClose={() => setM(false)} />}
+      {m && <TaskFormModal onClose={() => setM(false)} />}
     </>
   )
 }

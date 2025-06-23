@@ -34,12 +34,12 @@ export default function DropdownButton ({
 export function Menu ({ items, callbacks, className = '' }) {
   return (
     <ul
-      className={`bg-white text-black rounded-md text-left overflow-hidden ${className}`}
+      className={`bg-white text-black font-normal rounded-md text-left overflow-hidden ${className}`}
     >
       {items.map(item => (
         <li
           key={item}
-          className='px-4 py-2 hover:bg-violet-400 transition-colors'
+          className='px-4 py-2 hover:bg-violet-500/35 transition-colors'
           onClick={callbacks[item]}>{item}
         </li>
       ))}

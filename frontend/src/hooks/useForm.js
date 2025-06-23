@@ -4,6 +4,18 @@ export function useForm (initialValues, keyloggers, validations) {
   const [values, setValues] = useState(initialValues)
   const [errors, setErrors] = useState({})
 
+  const resetForm = useCallback(() => {
+    setValues(prevValues => {
+      let newValues = {}
+      for (const fieldName in prevValues) {
+        newValues[fieldName] = ''
+      }
+
+      return newValues
+    })
+    setErrors({})
+  }, [])
+
   const handleChange = useCallback((e) => {
     const { name, value } = e.target
     const lastChar = value.slice(-1)
@@ -13,7 +25,7 @@ export function useForm (initialValues, keyloggers, validations) {
     setErrors(prevErrors => ({ ...prevErrors, [name]: null }))
   }, [])
 
-  const validateForm = useCallback(() => {
+  const validateForm = () => {
     let newErrors = {}
     let formIsValid = true
 
@@ -30,7 +42,7 @@ export function useForm (initialValues, keyloggers, validations) {
 
     setErrors(newErrors)
     return formIsValid
-  }, [values, validations])
+  }
 
 
   return {
@@ -38,6 +50,7 @@ export function useForm (initialValues, keyloggers, validations) {
     errors,
     handleChange,
     validateForm,
+    resetForm,
     setValues,
     setErrors,
   }
