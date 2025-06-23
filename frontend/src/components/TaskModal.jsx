@@ -41,7 +41,7 @@ export default function TaskModal ({ values, onClose }) {
           </tr>
         </tbody>
       </table>
-      <div className='flex flex-wrap justify-center gap-6'>
+      <div className='flex flex-wrap-reverse justify-center gap-6'>
           <SecondaryButton className='w-28' onClick={handleDelete}>Delete</SecondaryButton>
           <PrimaryButton className='w-28' onClick={handleEdit}>Edit</PrimaryButton>
       </div>

@@ -18,6 +18,11 @@ export function useForm (initialValues, keyloggers, validations) {
 
   const handleChange = useCallback((e) => {
     const { name, value } = e.target
+    if (e.target.type === 'checkbox') {
+      setValues(prevValues => ({ ...prevValues, [name]: !prevValues[name] }))
+      return
+    }
+
     const lastChar = value.slice(-1)
     if (keyloggers && !keyloggers[name]?.(lastChar)) return
 

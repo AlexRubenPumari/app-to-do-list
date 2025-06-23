@@ -2,11 +2,12 @@ import { TASK_KEYS } from '../config/constants'
 import PrimaryButton from './PrimaryButton'
 import SecondaryButton from './SecondaryButton'
 import Input from './Input'
+import Checkbox from './Checkbox'
 
 export default function TaskForm({
-  onSubmit, onCancel, onChange, cancelBtnValue = 'Cancel', submitBtnValue, values, errors, title
+  onSubmit, onCancel, onChange, cancelBtnValue = 'Cancel', submitBtnValue, values, errors, title, showCheckbox
 }) {
-  const [TITLE, DESC] = TASK_KEYS
+  const { TITLE, DESC, COMPLETED } = TASK_KEYS
   return (
     <>
       {title && <h3 className='Title'>{title}</h3>}
@@ -20,6 +21,12 @@ export default function TaskForm({
           error={errors[TITLE]}
           onChange={onChange}
         />
+        {showCheckbox && (
+          <div className='flex gap-4'>
+            <label>Completed:</label>
+            <Checkbox name={COMPLETED} value={values[COMPLETED]} onChange={onChange} />
+          </div>
+        )}
         <Input
           name={DESC}
           className='focus-ring-default resize-none h-32'
@@ -30,7 +37,7 @@ export default function TaskForm({
           onChange={onChange}
           multiline
         />
-        <div className='flex flex-wrap justify-center gap-6 mt-12'>
+        <div className='flex flex-wrap-reverse justify-center gap-6 mt-12'>
           <SecondaryButton className='w-28' onClick={onCancel}>
             {cancelBtnValue}
           </SecondaryButton>

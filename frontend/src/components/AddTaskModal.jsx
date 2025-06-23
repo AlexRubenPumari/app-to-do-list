@@ -9,7 +9,7 @@ import TaskForm from './TaskForm'
 
 export default function AddTaskModal ({ onClose }) {
   const { addNewTask } = useContext(TasksContext)
-  const [TITLE, DESC] = TASK_KEYS
+  const { TITLE, DESC } = TASK_KEYS
   const { values, errors, handleChange, validateForm } = useForm(
     { [TITLE]: '', [DESC]: '' }, null,
     { [TITLE]: isValidTitle, [DESC]: isValidDesc }

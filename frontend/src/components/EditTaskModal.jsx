@@ -8,7 +8,7 @@ import TaskForm from './TaskForm'
 
 export default function EditTaskModal ({ initValues, onClose }) {
   const { editTaskForId } = useContext(TasksContext)
-  const [TITLE, DESC] = TASK_KEYS
+  const { TITLE, DESC } = TASK_KEYS
   const { values, errors, handleChange, validateForm } = useForm(
     initValues, null,
     { [TITLE]: isValidTitle, [DESC]: isValidDesc }
@@ -37,6 +37,7 @@ export default function EditTaskModal ({ initValues, onClose }) {
         onChange={handleChange}
         onSubmit={handleSubmit}
         onCancel={onClose}
+        showCheckbox
       />
     </Modal>
   )

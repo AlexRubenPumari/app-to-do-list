@@ -1,7 +1,7 @@
 import CloseButton from './CloseButton'
 
 export default function Modal ({ children, size = 'lg', className, onClose }) {
-  const SIZES = { sm: 'h-[28vh]', md: 'h-[55vh]', lg: 'h-[90vh]' }
+  const SIZES = { sm: 'min-h-[28vh]', md: 'min-h-[55vh]', lg: 'h-[90vh]' }
   return (
     <div
       className='fixed inset-0 z-10 bg-black/60 flex-center-all'
