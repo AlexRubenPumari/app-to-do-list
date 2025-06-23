@@ -3,11 +3,13 @@ import PrimaryButton from './PrimaryButton'
 import SecondaryButton from './SecondaryButton'
 import Input from './Input'
 
-export default function AddTaskForm({ onSubmit, onCancel, onChange, values, errors }) {
+export default function TaskForm({
+  onSubmit, onCancel, onChange, cancelBtnValue = 'Cancel', submitBtnValue, values, errors, title
+}) {
   const [TITLE, DESC] = TASK_KEYS
   return (
     <>
-      <h3 className='Title'>Add task</h3>
+      {title && <h3 className='Title'>{title}</h3>}
       <form action="" onSubmit={onSubmit}>
         <Input
           name={TITLE}
@@ -29,8 +31,12 @@ export default function AddTaskForm({ onSubmit, onCancel, onChange, values, erro
           multiline
         />
         <div className='flex flex-wrap justify-center gap-6 mt-12'>
-          <SecondaryButton className='w-28' onClick={onCancel}>Cancel</SecondaryButton>
-          <PrimaryButton className='w-28'>Add</PrimaryButton>
+          <SecondaryButton className='w-28' onClick={onCancel}>
+            {cancelBtnValue}
+          </SecondaryButton>
+          <PrimaryButton className='w-28'>
+            {submitBtnValue}
+          </PrimaryButton>
         </div>
       </form>
     </>

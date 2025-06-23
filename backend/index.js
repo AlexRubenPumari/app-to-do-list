@@ -28,14 +28,14 @@ app.put('/api/tasks/:id', (req, res) => {
     }
     
     tasks[index] = { ...tasks[index], ...req.body }
-    res.status(200).json({ status: 200, ok: true, data: tasks[index] })
+    res.status(200).json({ data: tasks[index] })
 })
 
 app.delete('/api/tasks/:id', (req, res) => {  
     const id = parseInt(req.params.id)
 
     tasks = tasks.filter(t => t.id !== id)
-    res.status(200).json({ status: 200, ok: true })
+    res.status(200).json({ data: { id } })
 })
 
 app.listen(PORT, () => console.log('Server running at http://localhost:' + PORT))

@@ -2,16 +2,15 @@ import { useContext } from 'react'
 import { TasksContext } from '../contexts/tasks'
 import { useForm } from '../hooks/useForm'
 import { isValidTitle, isValidDesc } from '../logic/validations'
-import { getFormattedDateString } from '../logic/date'
 import { TASK_KEYS } from '../config/constants'
 import Modal from './Modal'
 import TaskForm from './TaskForm'
 
-export default function AddTaskModal ({ onClose }) {
-  const { addNewTask } = useContext(TasksContext)
+export default function EditTaskModal ({ initValues, onClose }) {
+  const { editTaskForId } = useContext(TasksContext)
   const [TITLE, DESC] = TASK_KEYS
   const { values, errors, handleChange, validateForm } = useForm(
-    { [TITLE]: '', [DESC]: '' }, null,
+    initValues, null,
     { [TITLE]: isValidTitle, [DESC]: isValidDesc }
   )
   const handleSubmit = e => {
@@ -19,7 +18,7 @@ export default function AddTaskModal ({ onClose }) {
     const isValidForm  = validateForm()
     if (!isValidForm) return
 
-    addNewTask({ ...values, completed: false, createdAt: getFormattedDateString()  })
+    editTaskForId(values)
       .then(() => {
         onClose()
       })
@@ -31,10 +30,10 @@ export default function AddTaskModal ({ onClose }) {
       className='flex-grow flex flex-col justify-center'
     >
       <TaskForm
-        title='Add task'
+        title='Edit task'
         values={values}
         errors={errors}
-        submitBtnValue='Add'
+        submitBtnValue='Save'
         onChange={handleChange}
         onSubmit={handleSubmit}
         onCancel={onClose}

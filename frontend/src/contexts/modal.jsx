@@ -7,6 +7,7 @@ export default function ModalProvider ({ children }) {
   const [modal, setModal] = useState(null)
   const closeModal = () => setModal(null)
   const openAddTaskModal = () => setModal({ type: M.ADD_TASK })
+  const openEditTaskModal = Task => setModal({ type: M.EDIT_TASK, value: Task })
   const openTaskModal = Task => setModal({ type: M.TASK, value: Task })
 
   return (
@@ -14,6 +15,7 @@ export default function ModalProvider ({ children }) {
         modal,
         closeModal,
         openAddTaskModal,
+        openEditTaskModal,
         openTaskModal,
       }}
     >
