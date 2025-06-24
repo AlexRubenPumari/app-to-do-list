@@ -31,3 +31,10 @@ npm run dev
 ## Acceso a la Aplicación
 Una vez que ambos servidores (backend y frontend) estén en funcionamiento, abre tu navegador web y ve a: `http://localhost:5173`
 > Nota: El puerto 5173 es el predeterminado para el servidor de desarrollo de Vite. Si tienes algún problema, revisa tu consola para ver el número de puerto correcto.
+
+
+![](images/img_1.png)
+![](images/img_2.png)
+![](images/img_3.png)
+![](images/img_4.png)
+![](images/img_5.png)
