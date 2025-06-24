@@ -8,6 +8,15 @@ export function getAllTasks () {
     })
     .then(json => json.data)
 }
+export function getTask (Task) {
+  return fetch(`${LOCAL_HOST_URL}/${Task.id}`)
+    .then(res => {
+      if (!res.ok) throw new Error(res.status)
+      
+      return res.json()
+    })
+    .then(json => json.data)
+}
 
 export function addTask (Task) {
   return fetch(LOCAL_HOST_URL, {

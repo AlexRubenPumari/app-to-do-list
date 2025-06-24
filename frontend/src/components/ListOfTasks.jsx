@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { useContext } from 'react'
 import { TasksContext } from '../contexts/tasks'
 import Alert from './Alert'
@@ -14,6 +15,7 @@ export default function ListOfTasks () {
 }
 
 function List ({ list }) {
+  const navigate = useNavigate()
   return (
     <ul>
         {list?.map(task => (
@@ -21,6 +23,7 @@ function List ({ list }) {
             key={task.id}
             values={task}
             className='border-b-[1px] last:border-b-0 border-violet-600'
+            onClick={() => navigate(`/tasks/${task.id}`)}
           />
         ))}
     </ul>

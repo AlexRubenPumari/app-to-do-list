@@ -6,11 +6,20 @@ app.use(cors())
 app.use(express.json())
 
 const PORT = 4000
-let currentId = 1
-let tasks = []
+let currentId = 2
+let tasks = [{ id: 1, title: 'Tarea de Alex', description: 'Desc 1', completed: true, createdAt: '20/04/2025' }]
 
 app.get('/api/tasks', (_, res) => {
     res.status(200).json({ data: tasks })
+})
+app.get('/api/tasks/:id', (req, res) => {
+    const id = parseInt(req.params.id)
+    const index = tasks.findIndex(t => t.id === id)
+    if (index < 0) {
+        return res.status(404).json({ error: 'Task not found' })
+    }
+
+    res.status(200).json({ data: tasks[index] })
 })
 
 app.post('/api/tasks', (req, res) => {
@@ -24,7 +33,7 @@ app.put('/api/tasks/:id', (req, res) => {
     const id = parseInt(req.params.id) 
     const index = tasks.findIndex(t => t.id === id)
     if (index < 0) {
-        return res.status(404).json({ status: 404, ok: false, error: 'Task not found' })
+        return res.status(404).json({ error: 'Task not found' })
     }
     
     tasks[index] = { ...tasks[index], ...req.body }

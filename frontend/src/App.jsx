@@ -1,15 +1,20 @@
-import { useContext } from 'react'
-import { ModalContext } from './contexts/modal'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import TasksProvider from './contexts/tasks'
-import HomePage from './pages/HomePage'
-import ModalController from './components/ModalController'
+import TaskList from './pages/TaskList'
+import TaskForm from './pages/TaskForm'
+import TaskItem from './pages/TaskItem'
 
 export default function App() {
-  const { modal } = useContext(ModalContext)
   return (
     <TasksProvider>
-      <HomePage />
-      {modal && <ModalController type={modal.type} value={modal.value} />}
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<TaskList />} />
+          <Route path='/tasks/new' element={<TaskForm />} />
+          <Route path='/tasks/:id/edit' element={<TaskForm />} />
+          <Route path='/tasks/:id' element={<TaskItem />} />
+        </Routes>
+      </BrowserRouter>
     </TasksProvider>
   )
 }
