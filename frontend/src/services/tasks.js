@@ -1,4 +1,4 @@
-const LOCAL_HOST_URL = 'http://localhost:4000/api/tasks' 
+const LOCAL_HOST_URL = import.meta.env.VITE_API_URL
 export function getAllTasks () {
   return fetch(LOCAL_HOST_URL)
     .then(res => {

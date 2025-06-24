@@ -1,3 +1,5 @@
+const fs = require('fs')
+require('dotenv').config()
 const express = require('express')
 const cors = require('cors')
 const app = express()
@@ -5,7 +7,11 @@ const app = express()
 app.use(cors())
 app.use(express.json())
 
-const PORT = 4000
+const PORT = Number(process.env.PORT) || 3000
+
+const apiURL = `http://localhost:${PORT}/api/tasks`
+fs.writeFileSync('../frontend/.env', `VITE_API_URL=${apiURL}\n`)
+
 let currentId = 2
 let tasks = [{ id: 1, title: 'Tarea de Alex', description: 'Desc 1', completed: true, createdAt: '20/04/2025' }]
 
