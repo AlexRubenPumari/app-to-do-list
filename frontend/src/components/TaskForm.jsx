@@ -11,7 +11,7 @@ export default function TaskForm({
   return (
     <>
       {title && <h3 className='Title'>{title}</h3>}
-      <form action="" onSubmit={onSubmit}>
+      <form action="" onSubmit={onSubmit} className='w-full'>
         <Input
           name={TITLE}
           className='focus-ring-default'

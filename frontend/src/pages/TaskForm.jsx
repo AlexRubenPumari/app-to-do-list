@@ -40,12 +40,13 @@ export default function AddTaskModal () {
     getTask({ id })
       .then(Task => setValues(Task))
   }, [])
+
   return (
     <Modal
       onClose={handleGoBack}
-      className='flex-grow flex flex-col justify-center'
+      className='flex-grow flex flex-col justify-center items-center'
     >
-      {(id && !values.id) && <Spinner className='text-violet-600' />} 
+      {(id && !values.id) && <Spinner className='text-violet-600' />}
       {(!id || values.id) && (
         <TaskForm
           title={`${id ? 'Edit' : 'Add'} task`}

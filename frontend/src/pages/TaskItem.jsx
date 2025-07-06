@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Link, useLocation } from 'react-router-dom'
 import { getTask } from '../services/tasks'
 import { TasksContext } from '../contexts/tasks'
 import Modal from '../components/Modal'
@@ -8,6 +8,7 @@ import SecondaryButton from '../components/SecondaryButton'
 import Spinner from '../components/Spinner'
 
 export default function TaskModal() {
+  const location = useLocation()
   const [values, setValues] = useState(null)
   const { id } = useParams()
   const navigate = useNavigate()
@@ -19,12 +20,10 @@ export default function TaskModal() {
   const { deleteTaskForId } = useContext(TasksContext)
 
   const handleGoBack = () => navigate(-1)
-  const handleEdit = () => navigate(`/tasks/${id}/edit`)
   const handleDelete = () => {
     deleteTaskForId(values)
       .then(handleGoBack)
   }
-  // const { title, completed, description, createdAt } = values
   return (
     <Modal
       size='md'
@@ -53,8 +52,16 @@ export default function TaskModal() {
             </tbody>
           </table>
           <div className='flex flex-wrap-reverse justify-center gap-6'>
-            <SecondaryButton className='w-28' onClick={handleDelete}>Delete</SecondaryButton>
-            <PrimaryButton className='w-28' onClick={handleEdit}>Edit</PrimaryButton>
+            <SecondaryButton className='w-28' onClick={handleDelete}>
+              Delete
+            </SecondaryButton>
+            <Link
+              to={`/tasks/${id}/edit`}
+              // state={{ backgroundLocation: location }}
+              state={{ backgroundLocation: location.state?.backgroundLocation || location }}
+            >
+              <PrimaryButton className='w-28'>Edit</PrimaryButton>
+            </Link>
           </div>
         </>
       )}
