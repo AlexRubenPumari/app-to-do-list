@@ -1,37 +1,81 @@
-# PASOS NECESARIOS
-En pocas palabras, iniciar el servidor Express y luego el servidor de Vite.
-## Requisitos Previos
-Node.js y npm
+# 📋 Organizador de tareas
+![React](https://img.shields.io/badge/React-19.1.0-blue?style=for-the-badge&logo=react)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.17-38B2AC?style=for-the-badge&logo=tailwind-css)
+![Express](https://img.shields.io/badge/Express-5.1.0-green?style=for-the-badge&logo=express)
 
-## Servidor Express
-Navega al directorio del backend desde la raíz del repositorio:
+---
+
+## 📁 Estructura del Proyecto
 
 ```
+app-to-list/
+├── 📁 frontend/                 # Aplicación de React + Vite
+│   ├── 📁 src/
+│   │   ├── 📁 components/       # Componentes de React
+│   │   ├── 📁 config/           # Ajustes y constantes
+│   │   ├── 📁 contexts/         # Contextos de React
+│   │   ├── 📁 hooks/            # Customs Hooks de React
+│   │   ├── 📁 logic/            # Lógica de negocio
+│   │   ├── 📁 pages/            # Páginas para Enrutamiento
+│   │   ├── 📁 services/         # Servicios de datos
+│   │   ├── app.jsx 
+│   │   └── main.jsx 
+│   └── package.json
+├── 📁 backend/                  # API de Express
+│   ├── index.js                 # Punto de entrada
+│   └── package.json
+└── README.md
+```
+
+---
+
+## 🚀 Instalación
+
+### Requisitos previos
+- Node.js 18+ 
+- npm or yarn
+
+### 1. Clonar este repositorio
+```bash
+git clone https://github.com/AlexRubenPumari/app-to-do-list.git
+cd app-to-list
+```
+
+### 2. Instalar dependencias de Backend
+```bash
 cd backend
-npm i
+npm install
+```
+
+### 3. Instalar dependencias de Frontend
+```bash
+cd ../frontend
+npm install
+```
+
+---
+
+## 🚀 Ejecutando la app
+
+### Inicializar el Backend
+```bash
+cd backend
 node index.js
-````
-
-> Nota: Puedes crear un archivo .env en el directorio `backend` para personalizar el puerto en el que se ejecuta el servidor. Ejemplo de contenido de `.env`:
-
 ```
+Se puede indicar puerto para ejecutar servidor, en la raíz de la carpeta `backend` con un archivo `.env`, que contenga algo similar a:
+```bash
 PORT=4000
-
 ```
+En caso contrario, el servidor se aloja por defecto en: `http://localhost:3000` 
 
-## Servidor Vite
-En una nueva ventana de terminal, navega al directorio de `frontend` desde la raíz del repositorio y ejecutar:
-
-```
+### Inicializar el Frontend
+```bash
 cd frontend
-npm i
 npm run dev
 ```
+El servidor se aloja por defecto en: `http://localhost:5137`
 
-## Acceso a la Aplicación
-Una vez que ambos servidores (backend y frontend) estén en funcionamiento, abre tu navegador web y ve a: `http://localhost:5173`
-> Nota: El puerto 5173 es el predeterminado para el servidor de desarrollo de Vite. Si tienes algún problema, revisa tu consola para ver el número de puerto correcto.
-
+## 🎨 Imagenes del proyecto
 
 ![](images/img_1.png)
 ![](images/img_2.png)
