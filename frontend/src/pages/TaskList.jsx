@@ -3,6 +3,7 @@ import FilterProvider from '../contexts/filter'
 import ListOfTasks from '../components/ListOfTasks'
 import CircleButton from '../components/CircleButton'
 import TaskFilter from '../components/TaskFilter'
+import TaskSearchbar from '../components/TaskSearchbar'
 
 export default function TaskList() {
   const location = useLocation()
@@ -13,7 +14,8 @@ export default function TaskList() {
         <h3 className='Title text-white'>To-do list App</h3>
         <TaskFilter />
       </header>
-      <main className='flex flex-col gap-4 max-w-screen-sm mx-auto px-4'>
+      <main className='flex flex-col gap-4 max-w-xl mx-auto px-4'>
+        <TaskSearchbar />
         <ListOfTasks />
         <Link to='/tasks/new' state={{ backgroundLocation: location }}>
           <CircleButton className='fixed right-4 bottom-4 text-2xl font-bold w-12 h-12'>

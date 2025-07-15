@@ -2,7 +2,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { useContext } from 'react'
 import { TasksContext } from '../contexts/tasks'
 import { FilterContext } from '../contexts/filter'
-import { FILTER_ITEMS } from '../config/constants'
+import { filterTasks } from '../logic/tasks'
 import Alert from './Alert'
 import Task from './Task'
 import Spinner from '../components/Spinner'
@@ -29,16 +29,14 @@ export default function ListOfTasks() {
 }
 
 function List({ list }) {
-  const { filter } = useContext(FilterContext)
-  const filteredList = list?.filter(i => {
-    if (filter === FILTER_ITEMS[0]) return true
-    if (filter === FILTER_ITEMS[1]) return !i.completed
-    if (filter === FILTER_ITEMS[2]) return i.completed
-  })
+  const { filter, query } = useContext(FilterContext)
+  const filteredList = filterTasks(list, filter, query)
 
-  if (filteredList?.length === 0) return (
-    <Alert type='info'>⚠️ No tasks match the current filter!</Alert>   
-  )
+  if (filteredList?.length === 0) {
+    return query === ''
+      ? <Alert type='info'>⚠️ No tasks match the current filter!</Alert>
+      : <Alert type='info'>⚠️ Sorry, we couldn't find any matches!</Alert>
+  }
 
   return <Results results={filteredList} />
 }

@@ -13,7 +13,7 @@ const apiURL = `http://localhost:${PORT}/api/tasks`
 fs.writeFileSync('../frontend/.env', `VITE_API_URL=${apiURL}\n`)
 
 let currentId = 2
-let tasks = [{ id: 1, title: 'Tarea de Alex', description: 'Desc 1', completed: true, createdAt: '20/04/2025' }]
+let tasks = [{ id: 1, title: 'Example task', description: 'Task Description...', completed: true, createdAt: '20/04/2025' }]
 
 app.get('/api/tasks', (_, res) => {
     res.status(200).json({ data: tasks })
