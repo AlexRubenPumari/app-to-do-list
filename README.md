@@ -77,8 +77,7 @@ El servidor se aloja por defecto en: `http://localhost:5137`
 
 ## 🎨 Imagenes del proyecto
 
-![](images/img_1.png)
-![](images/img_2.png)
-![](images/img_3.png)
-![](images/img_4.png)
-![](images/img_5.png)
+![Imagen del Proyecto](images/img_1.png)
+![Imagen del Proyecto](images/img_2.png)
+![Imagen del Proyecto](images/img_3.png)
+![Imagen del Proyecto](images/img_4.png)
