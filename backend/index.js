@@ -9,8 +9,14 @@ app.use(express.json())
 
 const PORT = Number(process.env.PORT) || 3000
 
-const apiURL = `http://localhost:${PORT}/api/tasks`
-fs.writeFileSync('../frontend/.env', `VITE_API_URL=${apiURL}\n`)
+if (process.env.NODE_ENV !== 'production') {
+  try {
+    const apiURL = `http://localhost:${PORT}/api/tasks`
+    fs.writeFileSync('../frontend/.env', `VITE_API_URL=${apiURL}\n`)
+  } catch (err) {
+    console.warn('Could not write the .env for the frontend:', err.message)
+  }
+}
 
 let currentId = 2
 let tasks = [{ id: 1, title: 'Example task', description: 'Task Description...', completed: true, createdAt: '20/04/2025' }]
