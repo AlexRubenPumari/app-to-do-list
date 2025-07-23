@@ -1,4 +1,7 @@
 # 📋 Organizador de tareas
+🖥️ Front-End alojado en Vercel: [app-to-do-list-frontend](https://app-to-do-list-theta.vercel.app/)
+🖥️ Back-End alojado en Render: [app-to-do-list-backend](https://app-to-do-list.onrender.com/api/tasks)  
+
 ![React](https://img.shields.io/badge/React-19.1.0-blue?style=for-the-badge&logo=react)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.17-38B2AC?style=for-the-badge&logo=tailwind-css)
 ![Express](https://img.shields.io/badge/Express-5.1.0-green?style=for-the-badge&logo=express)
@@ -77,6 +80,18 @@ npm run dev
 El servidor se aloja por defecto en: `http://localhost:5137`
 
 ---
+
+## 🔧 API
+
+### Endpoints
+
+| Método   | Endpoint           | Descripción                         |
+|----------|--------------------|-------------------------------------|
+| `GET`    | `/api/tasks`       | Obtener todas las tareas            |
+| `GET`    | `/api/tasks/:id`   | Obtener una tarea por su ID         |
+| `POST`   | `/api/tasks`       | Crear una nueva tarea               |
+| `PUT`    | `/api/tasks/:id`   | Actualizar una tarea existente      |
+| `DELETE` | `/api/tasks/:id`   | Eliminar una tarea por su ID        |
 
 ## 🎨 Imagenes del proyecto
 
