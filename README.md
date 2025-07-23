@@ -24,6 +24,7 @@ app-to-list/
 ├── 📁 backend/                  # API de Express
 │   ├── index.js                 # Punto de entrada
 │   └── package.json
+├── 📁 images/                   # Imagenes del proyecto
 └── README.md
 ```
 
@@ -74,6 +75,8 @@ cd frontend
 npm run dev
 ```
 El servidor se aloja por defecto en: `http://localhost:5137`
+
+---
 
 ## 🎨 Imagenes del proyecto
 
